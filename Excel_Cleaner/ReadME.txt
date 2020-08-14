@@ -1,0 +1,1 @@
+This python script removes all special characters from every cell in an excel file!
