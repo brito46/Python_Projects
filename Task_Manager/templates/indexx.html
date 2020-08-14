@@ -1,0 +1,57 @@
+{% extends 'basee.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+<div class = "content">
+	<h1 style = "text-align: center;"> Task Master </h1>
+
+	{% if tasks|length  %} <!-- variable tasks was rendered here in index function, and length is the  size of tasks -->
+	<h4 style = "text-align: center;"> There are no tasks yet. Create one! </h4>
+
+	
+
+
+	<table>
+		<tr> <!-- this is table row  -->
+			<th> Task </th>     <!-- this is table header (columns) -->
+			<th> Added </th>
+			<th> Actions </th>
+
+		</tr>
+		
+		{% for task in tasks%} <!-- going to grab all tasks in the task varaible we passed; sending a variable called tasks in here, which is done in the else statement in the index function -->
+
+		<tr> <!-- creating another row  where we putting the data-->
+
+			<!-- td define a cell in table, and there are two kinds of cells:
+			Header cells - contains header information 
+			Data cells - contains data  -->
+			<td> {{ task.content }} </td>   <!-- returning the value of content value of (recordx) which is know as task; and this is plave in first column of the table here  -->
+			<td> {{ task.date_created.date() }} </td> <!-- we just want the date for each task -->
+			<td>  
+				<a href = "/delete/{{ task.id }}" > Delete </a> <!-- getting value of id column of record you cliked-->
+				<br> <!-- adding a space --> 
+				<a href = "/update/{{ task.id }}" > Update </a>
+			</td> <!-- these two links will share a cell in the last column -->
+
+		</tr>
+
+		{% endfor %}
+
+	</table>
+
+	{% endif %}
+
+	<form action = "/" method = "POST">  
+		<input type = "text" name = "content" id = "content">
+		<input type = "submit" value = "Add Task"> <!-- the button is called "Add Task" --> 
+
+	</form>
+
+</div>
+
+{% endblock %}

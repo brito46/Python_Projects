@@ -1,0 +1,22 @@
+{% extends 'basee.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+<div class = "content">
+	<h1 style = "text-align: center;"> Update Task </h1>
+
+
+	<!-- sending a variable called task here by the update function-->
+	<form action = "/update/{{ task.id }}" method = "POST">  
+		<input type = "text" name = "content" id = "content" value = "{{ task.content }}">
+		<input type = "submit" value = "Update"> <!-- the button is called "Add Task" --> 
+
+	</form>
+
+</div>
+
+{% endblock %}

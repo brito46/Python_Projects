@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel = "stylesheet", href = "{{ url_for('static', filename = 'stylee.css') }}"> <!--  appending a url requires that; JS import follows that format too-->
+	{% block head %}{% endblock %} 
+	<!-- These brackets are Jinja 2 syntax, the template engine that flask uses -->
+	<!-- creating a block and template, and this block is where we'll insert our code on all the other pages that inherit this template;  basically the Parent class or page-->
+</head>
+<body>
+{% block body %}{% endblock %}
+</body>
+</html>
+ 
